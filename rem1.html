@@ -1,0 +1,215 @@
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <style>
+
+        /*注
+           1. 手机系统 ios、android 等是不支持微软雅黑字体；
+           2.各个手机系统有自己的默认字体，一般不支持我们常用字体，例如微软雅黑等；
+           3.如无特殊需求，手机端无需定义中文字体，使用系统默认即可。
+           4.英文字体和数字字体可使用 Helvetica ，三种系统都支持。
+        */
+
+        body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, a, code, em, img, q, small, strong, dd, dl, dt, li, ol, ul, fieldset, form, label, table, tbody, tr, th, td, input, header, footer {
+            margin: 0;
+            padding: 0;
+            border: 0
+        }
+
+        body {
+            /*-webkit-user-select:none;禁止用户选择文字等相关的内容*/
+            /*{-webkit-text-size-adjust:none;}!*阻止旋转屏幕时自动调整字体大小*!*/
+            -webkit-overflow-scrolling: touch; /*流畅滚动*/
+            background: #f6f6f6;
+            font-family: Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: normal;
+        }
+
+        a, a:active, a:hover, a:focus, a:visited {
+            text-decoration: none
+        }
+
+        a, img {
+            -webkit-touch-callout: none; /*禁止长按链接   与图片弹出菜单*/
+        }
+
+        a, button, input, optgroup, select, textarea {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /*去掉a、input和button点击时的蓝色外边框和灰色半透明背景*/
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /*图片的下边框的距离*/
+        img {
+            vertical-align: middle;
+            border: none;
+        }
+
+        ol, ul, li {
+            list-style: none
+        }
+
+        textarea, input[type="password"], input[type="text"] {
+            resize: none;
+            outline: 0;
+            -webkit-appearance: none;
+            background: #fff
+        }
+
+        /*取消按钮在inphone上的默认样式*!*/
+        input[type=button] {
+            -webkit-appearance: none;
+            outline: none
+        }
+
+        input::-webkit-input-placeholder {
+            color: #F0F0F0;
+        }
+
+        textarea::-webkit-input-placeholder {
+            color: #F0F0F0;
+        }
+
+        /*文字的换行的方式选择*/
+        .nowrap {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 100px;
+        }
+
+        /*清除浮动的元素*/
+        .clearfix:after {
+            display: block;
+            clear: both;
+            content: "";
+            visibility: hidden;
+            height: 0
+        }
+
+        .clearfix:before {
+            content: "";
+            display: table;
+        }
+
+        .clearfix {
+            zoom: 1;
+        }
+
+    /*媒体的查询的作用；*/
+        @media screen and (max-width: 321px) {
+            body {
+                font-size: 14px
+            }
+        }
+
+        @media screen and (min-width: 321px) and (max-width: 400px) {
+            body {
+                font-size: 16px
+            }
+        }
+
+        @media screen and (min-width: 400px) {
+            body {
+                font-size: 18px;
+            }
+        }
+
+        .zong {
+            max-width: 640px;
+            min-width: 320px;
+            margin: 0 auto;
+        }
+
+        .box {
+            width: 2rem;
+            height: 2rem;
+            background-color: red;
+            border-bottom: 1px solid red;
+        }
+
+        .box1 {
+
+            height: 1.8rem;
+            background-color: red;
+            display: flex;
+            display: -webkit-flex;
+
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            display: -webkit-flex;
+            /*这里是兼容的作法*/
+
+            /*justify-content: center;*/
+            /*-webkit-justify-content: center;*/
+            /*align-items:center;*/
+            /*-webkit-align-items: center;居中对齐的方式*/
+            flex-direction: row;
+        }
+
+        .box1 div.flex {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            overflow: hidden;
+            border: 1px solid blue;
+
+        }
+
+        .text {
+
+            /*border: 1px solid yellow;*/
+            /*overflow: hidden;*/
+            /*text-overflow: ellipsis;*/
+            /*white-space: nowrap;*/
+        }
+
+    </style>
+    <title>rem技术2选</title>
+</head>
+<body>
+
+<div class="zong">
+    <div class="box">
+        设计图标注的单位除以100就行的了；
+    </div>
+
+    <div class="box1">
+        <div class="flex">
+            <div class="text">
+                一个zsfasfasfasfasdf手动阀
+            </div>
+        </div>
+        <div class="flex">
+            <div class="text">
+                一个flasdfasfdasadfadfsqweqwe
+            </div>
+        </div>
+        <div class="flex">
+            <div class="text">
+                一个faasfasfasdffadfas级
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+</script>
+</body>
+</html>
