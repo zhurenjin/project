@@ -21,6 +21,11 @@ body {
     -webkit-tap-highlight-color: transparent;
     -webkit-text-size-adjust: none;
     -webkit-overflow-scrolling: touch; /*流畅滚动*/
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width:750px;
+    min-width: 320px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -89,6 +94,15 @@ textarea::-webkit-input-placeholder {
     height: 0
 }
 .clearfix{*zoom:1;}
+
+.fl{
+    float: left;
+}
+
+.fr{
+    float: right;
+}
+
 
 @media screen and (max-width: 320px) {
     html {
