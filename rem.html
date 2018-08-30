@@ -21,10 +21,40 @@
         }
         h4{
             color: #d4ad79;
-            font-size: .4rem;
+            font-size: .36rem;
         }
         .wap-wrap ul li{
             margin: 0.36rem 0;
+            font-size: .27rem;
+        }
+        .content{
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            margin-top: 0.1rem;
+            -webkit-box-align: start;
+            -webkit-align-items: flex-start;
+            -ms-flex-align: start;
+            align-items: flex-start;
+        }
+        .content div{
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            /*-webkit-box-align: start;*/
+            /*-webkit-align-items: flex-start;*/
+            /*-ms-flex-align: start;*/
+            align-items: flex-end;
+
+
+            width: 50%;
+            height: 1rem;
+            flex: 1;
+            border: 3px solid red;
+            padding: 0.2rem;
+            margin: 0 0.06rem;
         }
     </style>
 </head>
@@ -38,7 +68,12 @@
         <li>1rem=55.2px{根据media查询可以知道}</li>
         <li>设计稿是按照750px来做的,</li>
         <li>加入上面的viewport之后。网页的宽将会变成375px而不是750px,</li>
+        <li>根据结论，可以估计0.9rem=100px，距离不用减半</li>
     </ul>
+    <div class="content">
+        <div class="contentL">左边</div>
+        <div class="contentR">右边</div>
+    </div>
 </div>
 </body>
 </html>
