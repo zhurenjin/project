@@ -11,17 +11,12 @@
     <link href="css/index.css" rel="stylesheet">
     <script src="js/zepto.min.js"></script>
     <script src="js/common.js"></script>
-    <style>
-        .weui_dialog, .weui_toast{
-            z-index: 1002!important;
-        }
-    </style>
     <script>
         $(function(){
 
             $(document).on("tap", ".sharecard-slide-page-footer_list span", function() {
                 $(this).addClass('sc-clide-active').siblings().removeClass('sc-clide-active');
-                $.showLoading('数据加载中/邀请卡生成中..');
+                $.showLoading('数据加载中..');
                 var index = $(this).index();
                 setTimeout(function() {
                     $.hideLoading();
@@ -34,7 +29,7 @@
                 $('.share-QRdialog').fadeIn(600)
             });
 
-            //二维码点击隐藏
+            //关闭点击隐藏
             $(document).on("tap", ".close-btn", function() {
                 $('.share-QRdialog').fadeOut(400)
             });
@@ -44,13 +39,24 @@
                 $.toast("复制成功");
             });
 
-            //邀请卡请求中
-            $(document).on("click", "#showLoading", function() {
-                $.showLoading('数据加载中..');
-                setTimeout(function() {
-                    $.hideLoading();
-                }, 3000)
-            });
+            //模拟json数据的内容
+            var JSONarray = [
+                {   "imgbg":"images/mainpic1.jpg",
+                    "imgheader":"images/botpic1.jpg",
+                    "courseContent":"健身瑜伽课程；打造属于您的美丽",
+                    "erweima":"images/erweima.jpg",
+                    "organize":"广州儿童学院",
+                    "":"",
+                },
+                {   "imgbg":"images/mainpic2.jpg",
+                    "imgheader":"images/botpic2.jpg",
+                    "courseContent":"爱你的健身瑜伽课程；打造属于您的美丽",
+                    "erweima":"images/erweima.jpg",
+                    "organize":"深圳儿童学院",
+                    "":"",
+                }
+            ]
+
 
         })
     </script>
@@ -62,7 +68,7 @@
             <!--主要图片-->
             <div class="sharecard-slide-page">
 
-                <!--显示二维码点击收藏-->
+                <!--显示二维码点击扫描-->
                 <div class="sharecard-slide-page-qrcode">
                     <img src="images/erweima.jpg" alt="二维码">
                 </div>
@@ -78,8 +84,27 @@
                 <!--主要内容图片-->
                 <div class="sharecard-slide-page-top">
                     <div style="display: block" class="sharecard-slide-page-top_content">
-                        <!--<img src="./荔枝微课_files/1539673652_9ad82e776dbdda8144c5631bd650c777.jpg" alt="" id="sharecard-slide">-->
-                        <img src="images/mainpic1.jpg" alt="">
+                        <!--<img src="images/mainpic1.jpg" alt="">-->
+                        <div class="share_contentbox">
+                            <div class="picLogo">
+                                <div class="picLogoimg">
+                                    <img src="images/logo.png" alt="微信头像">
+                                </div>
+                                <p style="color: rgb(67, 67, 191);;">SOS</p>
+                            </div>
+                            <div class="picContent">
+                                <p>这里面的内容是课程的名称以及机构的内容的显示</p>
+                            </div>
+                            <div class="organizeName">
+                                <h2>广州棠下幼儿园</h2>
+                            </div>
+                            <div class="QRcodePic">
+                                <img src="images/erweima.jpg" alt="微信头像">
+                                <p>
+                                    长按识别二维码，立即加入学习
+                                </p>
+                            </div>
+                        </div>
                     </div>
                     <div class="sharecard-slide-page-top_content">
                         <img src="images/mainpic2.jpg" alt="">
