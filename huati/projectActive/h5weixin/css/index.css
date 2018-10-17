@@ -1,11 +1,25 @@
-
 @charset "utf-8";
 /*
 createBy ZhuRenJin
 data:2018-10-16
 copyright:广州华体科技有限公司
 华体微活动——h5:广州华体科技有限公司
-*/
+
+/*清除浮动*/
+.clearfix{ clear: both; content: ""; display: block; overflow: hidden }
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+*html .clearfix{height:1%}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.sharecard-slide-page .qr-dialog .url-wrap .url{
+    margin: 6px!important;
+}
+
+
 /*点击选中那个最底部图片*/
 #root>div{
     min-height:0
