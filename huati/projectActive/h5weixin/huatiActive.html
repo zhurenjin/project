@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="shortcut icon" href="images/money.png">
+    <title>华体微课</title>
+    <link href="css/weui.min.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <script src="js/zepto.min.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+        $(function(){
+
+            $(document).on("tap", ".sharecard-slide-page-footer_list span", function() {
+                $(this).addClass('sc-clide-active').siblings().removeClass('sc-clide-active');
+                var index = $(this).index();
+                $(".sharecard-slide-page-top > .sharecard-slide-page-top_content").eq(index).show().siblings().hide();//直接的子元素
+            });
+
+            //二维码点击--添加二维码或链接至宣传渠道
+            $(document).on("tap", ".sharecard-slide-page-qrcode", function() {
+                $('.share-QRdialog').fadeIn(600)
+            });
+            //二维码点击隐藏
+            $(document).on("tap", ".close-btn", function() {
+                $('.share-QRdialog').fadeOut(400)
+            });
+
+            $(document).on("tap", "#copy-btn", function() {
+                $('#wk__toast>div').fadeToggle()
+            });
+
+        })
+    </script>
+</head>
+<body>
+    <div id="root">
+        <div data-reactroot=""></div>
+        <img id="stat_img" src="images/__t.gif" alt="" style="display: none;">
+        <div id="wk__toast">
+            <div style="display: none;">
+                <div class="weui-mask_transparent"></div>
+                <div class="weui-toast">
+                    <i class="weui-icon-toast weui-icon_toast"></i>
+                    <p class="weui-toast_content">
+                        <img src="./荔枝微课_files/5459246_033f6f23e8b8dcb86d2e6b9d24b68c5f.jpg">
+                        <a>复制成功</a>
+                     </p>
+                </div>
+            </div>
+        </div>
+        <div id="wk__toast-global">
+            <div style="display: block;">
+                <div class="weui-mask_transparent"></div>
+                <div class="weui-toast">
+                    <i class="weui-icon-toast weui-icon_toast"></i>
+                    <p class="weui-toast_content"></p>
+                </div>
+            </div>
+        </div>
+        <div class="page sharecard-slide ">
+            <div class="page-actionsheet-container">
+                <div class="">
+                    <div class="weui-mask" style="display: none;"></div>
+                    <div class="weui-actionsheet">
+                        <div class="weui-actionsheet__menu"></div>
+                        <div class="weui-actionsheet__action">
+                            <div class="weui-actionsheet__cell">取消</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: none;">
+                <div class="weui-mask_transparent"></div>
+                <div class="weui-toast">
+                    <i class="weui-loading weui-icon_toast"></i>
+                    <p class="weui-toast_content">邀请卡请求中</p>
+                </div>
+            </div>
+            <div class="weui-toptips weui-toptips_warn" style="display: none;">Warn</div>
+            <div style="display: none;">
+                <div class="weui-mask"></div>
+                <div class="weui-dialog page-alert">
+                    <div class="weui-dialog__bd"></div>
+                    <div class="weui-dialog__ft"></div>
+                </div>
+            </div>
+            <div style="display: none;">
+                <div class="weui-mask"></div>
+                <div class="weui-dialog">
+                    <div class="weui-dialog__bd"></div>
+                    <div class="weui-dialog__ft"></div>
+                </div>
+            </div>
+
+            <!--主要图片-->
+            <div class="sharecard-slide-page">
+                <div style="display: none;">
+                    <div class="weui-mask_transparent"></div>
+                    <div class="weui-toast">
+                        <i class="weui-loading weui-icon_toast"></i>
+                        <p class="weui-toast_content">邀请卡生成中</p>
+                    </div>
+                </div>
+                <div class="sharecard-slide-page-qrcode">
+                    <img src="images/erweima.jpg" alt="">
+                </div>
+                <div class="sharecard-slide-page-tips">
+                    <span class="sharecard-slide-page-tips_icon">
+                        <img src="images/money.png" alt="">
+                    </span>
+                    <span>758元</span>
+                </div>
+
+                <!--主要内容图片-->
+                <div class="sharecard-slide-page-top">
+                    <div style="display: block" class="sharecard-slide-page-top_content">
+                        <!--<img src="./荔枝微课_files/1539673652_9ad82e776dbdda8144c5631bd650c777.jpg" alt="" id="sharecard-slide">-->
+                        <img src="images/mainpic1.jpg" alt="">
+                    </div>
+                    <div class="sharecard-slide-page-top_content">
+                        <img src="images/mainpic2.jpg" alt="">
+                    </div>
+                    <div class="sharecard-slide-page-top_content">
+                        <img src="images/mainpic3.jpg" alt="">
+                    </div>
+                    <div class="sharecard-slide-page-top_content">
+                        <img src="images/mainpic4.jpg" alt="">
+                    </div>
+                    <div class="sharecard-slide-page-top_content">
+                        <img src="images/mainpic5.jpg" alt="">
+                    </div>
+                    <div class="sharecard-slide-page-top_content">
+                        <img src="images/mainpic6.jpg" alt="">
+                    </div>
+                    <div class="sharecard-slide-page-top_content">
+                        <img src="images/mainpic7.jpg" alt="">
+                    </div>
+                    <div class="sharecard-slide-page-top_content">
+                        <img src="images/mainpic8.jpg" alt="">
+                    </div>
+                    <div class="sharecard-slide-page-top_content">
+                        <img src="images/mainpic9.jpg" alt="">
+                    </div>
+                    <div class="sharecard-slide-page-top_content">
+                        <img src="images/mainpic10.jpg" alt="">
+                    </div>
+                    <div class="sharecard-slide-page-top_content">
+                        <img src="images/mainpic11.jpg" alt="">
+                    </div>
+                    <div class="sharecard-slide-page-top_content">
+                        <img src="images/mainpic12.jpg" alt="">
+                    </div>
+                    <div class="sharecard-slide-page-top_content">
+                        <img src="images/mainpic13.jpg" alt="">
+                    </div>
+                </div>
+
+                <!--底部图片-->
+                <div class="sharecard-slide-page-footer">
+                    <p>长按上方图片发送给好友</p>
+                    <div class="sharecard-slide-page-footer_list-container">
+                        <div class="sharecard-slide-page-footer_list">
+                            <span class="sc-clide-active">
+                                <img src="images/botpic1.jpg" alt="">
+                            </span>
+                            <span class="">
+                                <img src="images/botpic2.jpg" alt="">
+                            </span>
+                            <span class="">
+                                <img src="images/botpic3.jpg" alt="">
+                            </span>
+                            <span class="">
+                                <img src="images/botpic4.jpg" alt="">
+                            </span>
+                            <span class="">
+                                <img src="images/botpic5.jpg" alt="">
+                            </span>
+                            <span class="">
+                                <img src="images/botpic6.jpg" alt="">
+                            </span>
+                            <span class="">
+                                <img src="images/botpic7.jpg" alt="">
+                            </span>
+                            <span class="">
+                                <img src="images/botpic8.jpg" alt="">
+                            </span>
+                            <span class="">
+                                <img src="images/botpic9.jpg" alt="">
+                            </span>
+                            <span class="">
+                                <img src="images/botpic10.jpg" alt="">
+                            </span>
+                            <span class="">
+                                <img src="images/botpic11.jpg" alt="">
+                            </span>
+                            <span class="">
+                                <img src="images/botpic12.jpg" alt="">
+                            </span>
+                            <span class="">
+                                <img src="images/botpic13.jpg" alt="">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="share-QRdialog" style="display: none;">
+                    <div class="qr-dialog">
+                        <div class="weui-mask"></div>
+                        <div class="content">
+                            <div class="content-title">添加二维码或链接至宣传渠道</div>
+                            <div class="liveroom-setting-header margin-bottom">
+                                <div class="rect"></div>
+                                <div class="title"></div>
+                            </div>
+                            <div class="qr">
+                                <img src="data:image/png;base64,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" alt="二维码"></div>
+                            <div class="qr-desc"></div>
+                            <div class="liveroom-setting-header ">
+                                <div class="rect"></div>
+                                <div class="title"></div>
+                            </div>
+                            <div class="url-wrap">
+                                <div class="url">http://www.baidu.com</div>
+                                <button id="copy-btn" data-clipboard-text="" class="weui-btn weui-btn_primary copy-btn">复制链接</button>
+                             </div>
+                            <button class="weui-btn weui-btn_primary close-btn">关闭</button>
+                        </div>
+                    </div>
+                </div>
+                <div  style="display: none;transform:none">
+                    <div class="weui-mask_transparen"></div>
+                    <div class="weui-toast">
+                        <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+                        <p class="weui-toast_content">复制成功</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
