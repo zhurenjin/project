@@ -1,1 +1,44 @@
 
+@charset "utf-8";
+/*
+createBy ZhuRenJin
+data:2018-10-16
+copyright:广州华体科技有限公司
+华体微活动——h5:广州华体科技有限公司
+*/
+/*点击选中那个最底部图片*/
+#root>div{
+    min-height:0
+}
+.sharecard-slide-page-footer_list .sc-clide-active:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 54px;
+    height: 54px;
+    opacity: .5;
+    background: #000;
+    border-radius: 6px;
+}
+.sharecard-slide-page-footer_list .sc-clide-active:after {
+    content: "";
+    background-image: url(../images/right.png);
+    background-position: 50%;
+    background-size: contain;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    width: 24px;
+    height: 24px;
+}
+
+/*二维码图片点击*/
+.sharecard-slide-page-qrcode img{
+    width: 26px;
+    height: 26px;
+}
+/*所有的主图片隐藏*/
+.sharecard-slide-page-top > .sharecard-slide-page-top_content{
+    display: none;
+}
