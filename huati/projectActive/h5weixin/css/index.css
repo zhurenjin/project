@@ -56,3 +56,41 @@ copyright:广州华体科技有限公司
 .sharecard-slide-page-top > .sharecard-slide-page-top_content{
     display: none;
 }
+
+
+/*弹出框的选择，遮罩层的显示*/
+.weui_dialog, .weui_toast{
+    z-index: 1002!important;
+}
+
+/*内容区域的图片主内容*/
+.share_contentbox{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #c3c3c3;
+    position: relative;
+    text-align: center;
+    /*background: url(images/mainpic1.jpg) no-repeat center center;*/
+    background:#fff;
+    background-size: 100% 100%;
+}
+.share_contentbox .picLogo .picLogoimg {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid rgb(67, 67, 191);;
+    text-align: center;
+    overflow: hidden;
+    margin: 40px auto 0;
+}
+.share_contentbox .picLogo p{
+    text-align: center;
+
+}
+.picContent{
+    padding: 30px;
+    text-align: left;
+}
+.QRcodePic img{
+    width: 30%;
+}
