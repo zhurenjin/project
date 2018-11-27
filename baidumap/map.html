@@ -1,0 +1,147 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>百度地图定位</title>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://api.map.baidu.com/getscript?v=2.0&ak=Ns8Qo2uD2QVFs45yFDeWL4CV"></script>
+</head>
+
+<body>
+        <form id="_kk6525ckon">
+            <input type="hidden" name="_K" value="3614" />
+            <div class="data">
+                <fieldset>
+                    <dl>
+                        <dt class="a">
+                            <label class="required">地址</label>
+                            <div class="i">尽可能详细，例如：深圳市XX区XX街道XX号</div></dt>
+                        <dd class="b">
+                            <textarea name="Address" title="Address" cols="32">广州市白云区泰兴路6号T6电商创意园B栋216</textarea>
+                            <input type="button" class="button" value="定位" />
+                            <span id="_kk6525cs8u"></span>
+                        </dd>
+                        <dd class="c"></dd>
+                    </dl>
+                    <dl>
+                        <dt class="a">
+                            <label>地图</label></dt>
+                        <dd class="b">
+                            <div id="_kk6525d07a" style="height:450px;"></div>
+                        </dd>
+                    </dl>
+                </fieldset>
+            </div>
+        </form>
+<script>
+
+
+
+        function ins(containerId, type, city, point, zoom, style, listener) {
+
+        var map = new BMap.Map(containerId),
+            lastMarker;
+        map.addControl(new BMap.NavigationControl({
+            type: BMAP_NAVIGATION_CONTROL_SMALL
+        }));
+        map.addControl(new BMap.MapTypeControl()); //默认地图控件
+        if (type) {
+            // BMAP_NORMAL_MAP	此地图类型展示普通街道视图。（默认）
+            // BMAP_PERSPECTIVE_MAP	此地图类型展示透视图像视图。
+            // BMAP_SATELLITE_MAP	此地图类型展示卫星视图。(自 1.2 新增)
+            // BMAP_HYBRID_MAP	此地图类型展示卫星和路网的混合视图。(自 1.2 新增)
+            map.setMapType(type);
+        }
+        if (style) {
+            map.setMapStyle(style);
+        }
+        // map.addEventListener('load', function() {
+        // 	console.log('load', arguments);
+        // });
+        // map.addEventListener('resize', function() {
+        // 	console.log('resize', arguments);
+        // });
+        if (listener) {
+            for (var type in listener) {
+                map.addEventListener(type, listener[type]);
+            }
+        }
+        if (city) {
+            map.setCurrentCity(city); //由于有3D图，需要设置城市
+        }
+        if (point) {
+            if (!point.lng && point.x) {
+                point = new BMap.Point(point.x, point.y);
+            }
+            map.centerAndZoom(point, zoom || 12);
+            // map.setCenter(point);
+        } else if (zoom) {
+            map.setZoom(zoom);
+        }
+
+        // 额外的方法，标记位置
+        map.marker = function(longitude, latitude, removeLastMaker, moveToCenter) {
+            var map = this,
+                point;
+
+            if (removeLastMaker && lastMarker) {
+                map.removeOverlay(lastMarker);
+            }
+            point = new BMap.Point(longitude, latitude);
+            lastMarker = new BMap.Marker(point); // 创建标注
+            map.addOverlay(lastMarker);
+            if (moveToCenter) {
+                map.setCenter(point);
+            }
+        };
+
+        return map;
+    };
+
+        var form = $('#_kk6525ckon')[0],
+            address = $('#_kk6525cs8u'),
+            geoc = new BMap.Geocoder(),
+            mc = $('#_kk6525d07a'),
+            map = ins('_kk6525d07a', BMAP_HYBRID_MAP, '广州', {
+                    x: 113.2644350,
+                    y: 23.1291630
+                },
+                15, {
+                    style: 'dark'
+                }, {
+                    click: function(e) {
+                        var p = e.point,
+                            x = p.lng,
+                            y = p.lat;
+                        map.marker(x, y, true);
+                        $(form.Longitude).val(x);
+                        $(form.Latitude).val(y);
+                        geoc.getLocation(p,
+                            function(r) {
+                                address.html(r.address + (r.business ? ' <span class="blue">' + r.business + '</span>' : ''));
+                            });
+                    }
+                });
+
+            mc.data('map', map);
+            map.marker(113.310823, 23.224113, true, true);
+            address.prev(':button').click(function() {
+                geoc.getPoint(form.Address.value,
+                    function(p) {
+                        console.log(p);
+                        if (p) {
+                            map.marker(p.lng, p.lat, true, true);
+                            address.html('');
+                        } else {
+                            address.html('<span class="gray">输入的地址没有解析到结果!</span>');
+                        }
+                    },
+                    mc.data('city') || '广州');
+            });
+
+</script>
+</body>
+
+</html>
